@@ -1,31 +1,28 @@
-package us.stqa.addressbook;
+package us.stqa.addressbook.appmanager;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.Test;
+import us.stqa.addressbook.model.GroupData;
 
 import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.*;
-
-public class GroupCreationTests {
+public class ApplicationManager {
   ChromeDriver wd;
 
-  @BeforeMethod
-  public void setUp() throws Exception {
+  public static boolean isAlertPresent(ChromeDriver wd) {
+    try {
+      wd.switchTo().alert();
+      return true;
+    } catch (NoAlertPresentException e) {
+      return false;
+    }
+  }
+
+  public void init() {
     wd = new ChromeDriver();
     wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
     login("admin", "secret");
-  }
-
-  @Test
-  public void testGroupCreation() {
-    goToGroupPage();
-    initGroupCreation();
-    fillGroupForm(new GroupData("Samplegroup1", "Samplegroup2", "Samplegroup3"));
-    submitGroupCreation();
-    returnToGroupPage();
   }
 
   public void login(String username, String password) {
@@ -69,17 +66,15 @@ public class GroupCreationTests {
     wd.findElement(By.linkText("groups")).click();
   }
 
-  @AfterMethod
-  public void tearDown() {
+  public void stop() {
     wd.quit();
   }
 
-  public static boolean isAlertPresent(ChromeDriver wd) {
-    try {
-      wd.switchTo().alert();
-      return true;
-    } catch (NoAlertPresentException e) {
-      return false;
-    }
+  public void deleteSelectedGroups() {
+    wd.findElement(By.name("delete")).click();
+  }
+
+  public void selectGroup() {
+    wd.findElement(By.name("selected[]")).click();
   }
 }

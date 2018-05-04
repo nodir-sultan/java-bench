@@ -1,4 +1,4 @@
-package us.stqa.addressbook;
+package us.stqa.addressbook.tests;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
