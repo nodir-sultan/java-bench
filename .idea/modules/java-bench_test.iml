@@ -36,6 +36,7 @@
     <orderEntry type="library" name="Gradle: org.codehaus.mojo:animal-sniffer-annotations:1.14" level="project" />
     <orderEntry type="library" name="Gradle: org.testng:testng:6.13" level="project" />
     <orderEntry type="library" name="Gradle: org.seleniumhq.selenium:selenium-chrome-driver:3.11.0" level="project" />
+    <orderEntry type="module" module-name="java-bench_main" scope="TEST" />
   </component>
   <component name="TestModuleProperties" production-module="java-bench_main" />
 </module>
