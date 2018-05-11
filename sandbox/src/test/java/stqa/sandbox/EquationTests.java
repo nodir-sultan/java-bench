@@ -23,7 +23,7 @@ public class EquationTests {
     Assert.assertEquals(e.roootNumber(), 2);
   }
 
-  @Test
+  @Test()
   public void testLinearEquation() {
     Equation e = new Equation(0, 1, 1);
     Assert.assertEquals(e.roootNumber(), 1);
