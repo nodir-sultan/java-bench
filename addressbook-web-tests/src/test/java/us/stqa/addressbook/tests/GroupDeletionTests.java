@@ -38,13 +38,11 @@ public class GroupDeletionTests extends TestBase {
     before.remove(before.size() - 1);
     Assert.assertEquals(after, before);
 
-    // Assert.assertEquals(after.size(), before.size() - 1);
-    // loop for groupdata objects comparison
-    /*    before.remove(before.size() - 1);
+    /*Assert.assertEquals(after.size(), before.size() - 1);
+    //     loop for groupdata objects comparison
+    before.remove(before.size() - 1);
     for (int i = 0; i < after.size(); i++) {
       Assert.assertEquals(before.get(i), after.get(i));
     }*/
   }
-
-
 }
